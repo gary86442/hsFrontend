@@ -1,6 +1,6 @@
 <script setup>
 import Category from './Category.vue';
-import  ItemCard from '@/components/ItemCard.vue';
+import ItemCard from '@/components/ItemCard.vue';
 import Pagination from '@/components/Pagination.vue';
 
 

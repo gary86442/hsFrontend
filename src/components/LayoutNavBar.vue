@@ -5,8 +5,9 @@ import { NImage, NIcon } from 'naive-ui'
 </script>
   <template>
     <nav class="navbar navbar-expand navbar-dark bg-custom">
-        <n-image height="52" width="230" src="https://i.imgur.com/VVLoUqg.png" />
         <div class="navbar-nav">
+        <n-image height="52" width="250" src="https://i.imgur.com/VVLoUqg.png" />
+        <div class="navbar-link">
         <router-link to="" class="nav-item nav-link">Home</router-link>
         <router-link to="" class="nav-item nav-link">Users</router-link>
         <n-icon size="40" color="#ffffff" class="btn btn-link nav-item nav-link"  >
@@ -16,21 +17,39 @@ import { NImage, NIcon } from 'naive-ui'
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 12"><g fill="none"><path d="M6 1a2 2 0 1 0 0 4a2 2 0 0 0 0-4zm2.5 5h-5A1.5 1.5 0 0 0 2 7.5c0 1.116.459 2.01 1.212 2.615C3.953 10.71 4.947 11 6 11c1.053 0 2.047-.29 2.788-.885C9.54 9.51 10 8.616 10 7.5A1.5 1.5 0 0 0 8.5 6z" fill="currentColor"></path></g></svg>
         </n-icon>
         </div>
+        </div>
     </nav>
     </template>
 
     <style>
-    /* Set the width and height of the nav element */
     .navbar {
         width: 100%;
         height: 60px;
         display: flex;
+        justify-content: space-between;
         align-items: center; /* Vertically center the content */
+    }
+    .navbar-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Vertically center the content */
+    }
+    .navbar-link {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 100%;
+    align-items: flex-end; /* Vertically center the content */
+     margin-left: auto;
+     @media (max-width: 1080px) {
+        padding-left: 0%;
+      align-items: flex-end; /* Align items to the left */
+    } /* Pushes the info div to the right */
     }
 
     .n-image {
         width: 100%;
         height: 100%; /* To maintain the aspect ratio of the image */
+        padding-right: 100%;
         object-fit: cover;
     }
 
@@ -44,7 +63,7 @@ import { NImage, NIcon } from 'naive-ui'
     .n-icon {
         size:40;
         margin-left: auto;
-        margin-right: 0;
+        margin-right: 10px;
         position: relative;
         top: -25px;
     }
