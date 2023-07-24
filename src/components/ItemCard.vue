@@ -14,6 +14,7 @@
             Deangelo Farrell
           </a>
         </p>
+        <div>$100</div>  
         <span class="badge badge-secondary">中式料理</span>
         <p class="card-text text-truncate">
           Voluptates veritatis blanditiis ipsam. Tempora mol
@@ -24,25 +25,7 @@
           type="button"
           class="btn btn-danger btn-border favorite mr-2"
         >
-          移除最愛
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary btn-border favorite mr-2"
-        >
-          加到最愛
-        </button>
-        <button
-          type="button"
-          class="btn btn-danger like mr-2"
-        >
-          Unlike
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary like mr-2"
-        >
-          Like
+          加到購物車
         </button>
       </div>
     </div>
