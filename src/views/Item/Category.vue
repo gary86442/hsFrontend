@@ -3,25 +3,43 @@ import { NBreadcrumb, NBreadcrumbItem } from 'naive-ui';
 
 const tabs = [
   {
-    title: '首頁',
-    path: '/'
-  },
-  {
     title: '全部商品',
     path: '/items'
   },
   {
-    title: '最新資訊',
-    path: '/news/top'
+    title: 'Brotop',
+    path: '/items/1'
   },
   {
-    title: '人氣商品',
-    path: '/items/top'
+    title: '上衣',
+    path: '/items/2'
   },
   {
-    title: '關於我們',
-    path: '/about'
-  }
+    title: '下身',
+    path: '/items/3'
+  },
+  {
+    title: '洋裝',
+    path: '/items/4'
+  },
+  {
+    title: '套裝＆連身褲',
+    path: '/items/5'
+  },
+  {
+    title: '外套＆罩衫',
+    path: '/items/6'
+  },
+  {
+    title: '配件',
+    path: '/items/7'
+  },
+  {
+    title: '鞋子',
+    path: '/items/8'
+  },
+
+  
 ];
 
 </script>

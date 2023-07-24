@@ -1,33 +1,50 @@
-<script setup>
-defineProps({
-  product: {
-    type: Object
-  }
-})
-</script>
-
 <template>
-  <div class="card">
-    <img :src="product.image" class="card-img-top" alt="product image">
-    <div class="card-body">
-      <h5 class="card-title">{{ item.name }}</h5>
-      <p class="card-text text-truncate">{{ item.category }}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div>＄{{ item.price }}</div>
-        <div v-if="product.stock > 0">
-          <a href="#" class="btn btn-outline-primary">加入購物車</a>
-        </div>
-        <div v-else>
-          <a class="btn btn-outline-primary disabled"></a>
-        </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card mb-4">
+      <img
+        class="card-img-top"
+        src="https://fakeimg.pl/300/"
+        alt="Card image cap"
+        width="286px"
+        height="180px"
+      >
+      <div class="card-body">
+        <p class="card-text title-wrap">
+          <a href="#">
+            Deangelo Farrell
+          </a>
+        </p>
+        <span class="badge badge-secondary">中式料理</span>
+        <p class="card-text text-truncate">
+          Voluptates veritatis blanditiis ipsam. Tempora mol
+        </p>
+      </div>
+      <div class="card-footer">
+        <button
+          type="button"
+          class="btn btn-danger btn-border favorite mr-2"
+        >
+          移除最愛
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-border favorite mr-2"
+        >
+          加到最愛
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger like mr-2"
+        >
+          Unlike
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary like mr-2"
+        >
+          Like
+        </button>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-.card {
-  width: 15rem;
-  margin: 0.6rem 0.5rem 0 0.5rem;
-}
-</style>

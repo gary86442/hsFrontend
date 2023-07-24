@@ -5,7 +5,7 @@ import "bootstrap"
 
 import LayoutNavBar from '@/components/LayoutNavBar.vue'
 import LayoutFooter from '@/components/LayoutFooter.vue'
-
+import LayoutHeader from '@/components/LayoutHeader.vue'
 
 </script>
 
@@ -14,6 +14,7 @@ import LayoutFooter from '@/components/LayoutFooter.vue'
     <div class="app-container">
         <!-- <Nav /> -->
         <LayoutNavBar />
+        <LayoutHeader/>
         <RouterView />
         <LayoutFooter />
     </div>

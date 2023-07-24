@@ -2,7 +2,7 @@
 import { NIcon } from 'naive-ui'
 </script>
 <template>
-    <footer class="fat-footer">
+    <footer class="fat-footer" >
         <div class="container">
             <div class="row">
                 <!-- Column 1: 關於我們 -->
