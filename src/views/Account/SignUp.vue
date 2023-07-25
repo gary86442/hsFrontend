@@ -1,84 +1,120 @@
 <script setup>
-import { Form, Field } from 'vee-validate';
-import * as Yup from 'yup';
+import { ref } from 'vue';
 
+const name = ref('');
+const email = ref('');
+const password = ref('');
+const passwordCheck = ref('');
 
+const handleSubmit = () => {
+  const data = JSON.stringify({
+    name: name.value,
+    email: email.value,
+    password: password.value,
+    passwordCheck: passwordCheck.value
+  });
 
-
-const schema = Yup.object().shape({
-    firstName: Yup.string()
-        .required('First Name is required'),
-    lastName: Yup.string()
-        .required('Last Name is required'),
-    username: Yup.string()
-        .required('Username is required'),
-    password: Yup.string()
-        .required('Password is required')
-        .min(6, 'Password must be at least 6 characters')
-});
-
+  // TODO: 向後端驗證使用者登入資訊是否合法
+  console.log('data', data);
+};
 </script>
 
+
+
+
 <template>
-    <div class="card m-3">
-        <div class="card-body">
-            <h4 class="card-header">註冊Herstory</h4>
-            <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
-                <div class="form-group">
-                    <label>Name</label>
-                    <Field name="name" type="text" class="form-control" :class="{ 'is-invalid': errors.name }" />
-                    <div class="invalid-feedback">{{ errors.firstName }}</div>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <Field name="email" type="text" class="form-control" :class="{ 'is-invalid': errors.email }" />
-                    <div class="invalid-feedback">{{ errors.email }}</div>
-                </div>
-                <div class="form-group">
-                    <label>Account</label>
-                    <Field name="account" type="text" class="form-control" :class="{ 'is-invalid': errors.account }" />
-                    <div class="invalid-feedback">{{ errors.account }}</div>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <Field name="password" type="password" class="form-control" :class="{ 'is-invalid': errors.password }" />
-                    <div class="invalid-feedback">{{ errors.password }}</div>
-                </div>
-                <div class="form-group">
-                    <button class="btn subbtn btn-primary" :disabled="isSubmitting">
-                        <span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
-                        Register
-                    </button>
-                    <router-link to="login" class="btn btn-link">Cancel</router-link>
-                </div>
-            </Form>
-        </div>
-    </div>
+  <div class="container py-5">
+    <form
+      class="w-100"
+      @submit.stop.prevent="handleSubmit"
+    >
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">
+          Sign Up
+        </h1>
+      </div>
+
+      <div class="form-label-group mb-2">
+        <label for="name">Name</label>
+        <input
+          id="name"
+          v-model="name"
+          name="name"
+          type="text"
+          class="form-control"
+          placeholder="name"
+          autocomplete="username"
+          required
+          autofocus
+        >
+      </div>
+
+      <div class="form-label-group mb-2">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          v-model="email"
+          name="email"
+          type="email"
+          class="form-control"
+          placeholder="email"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="form-label-group mb-3">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          v-model="password"
+          name="password"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          autocomplete="new-password"
+          required
+        >
+      </div>
+
+      <div class="form-label-group mb-3">
+        <label for="password-check">Password Check</label>
+        <input
+          id="password-check"
+          v-model="passwordCheck"
+          name="passwordCheck"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          autocomplete="new-password"
+          required
+        >
+      </div>
+
+      <button
+        class="btn btn-lg btn-primary btn-block mb-3"
+        type="submit"
+      >
+        Submit
+      </button>
+
+      <div class="text-center mb-3">
+        <p>
+          <router-link to="/signin">
+            Sign In
+          </router-link>
+        </p>
+      </div>
+
+      <p class="mt-5 mb-3 text-muted text-center">
+        © 2017-2018
+      </p>
+    </form>
+  </div>
 </template>
 
 <style>
-    .card {
-        width: 500px;
-        margin: 0 auto;
-    }
-    .card-header {
-        text-align: center;
-        background: #ffffff;
-    }
-
-    .form-group {
-        margin: 0 auto;
-        width: 100%;
-        padding: 2vw;
-    }
-    .n-image {
-        width: 100%;
-        height: 50%; /* To maintain the aspect ratio of the image */
-    }
-    .label {
-        font-size: 20px;
-    }
-    .btn.subbtn {
+    .btn {
         width: 100%;
         height: 100%;
         background: #800000;

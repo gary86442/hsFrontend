@@ -42,6 +42,6 @@ const tabs = [
   margin-top: 51px;
 }
 .n-breadcrumb-item {
-  margin-right: 20px; /* 调整品项之间的右侧间距，您可以根据需要调整此值 */
+  margin-right: 20px;
 }
 </style>

@@ -19,62 +19,58 @@ import { NImage, NIcon } from 'naive-ui'
         </div>
         </div>
     </nav>
-    </template>
+</template>
 
-    <style>
-    .navbar {
-        width: 100%;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center; /* Vertically center the content */
-    }
-    .navbar-nav{
-        display: flex;
-        justify-content: space-between;
-        align-items: center; /* Vertically center the content */
-    }
-    .navbar-link {
+<style>
+.navbar {
+    width: 100%;
+    height: 60px;
     display: flex;
+    justify-content: space-between;
+}
+.navbar-nav{
+    display: flex;
+    margin-left:100px;
     justify-content: space-around;
-    padding-left: 100%;
-    align-items: flex-end; /* Vertically center the content */
-     margin-left: auto;
-     @media (max-width: 1080px) {
-        padding-left: 0%;
-      align-items: flex-end; /* Align items to the left */
-    } /* Pushes the info div to the right */
-    }
+    
+}
+.navbar-link {
+display: flex;
+justify-content: space-around;
+padding-left: 100%;
+align-items: flex-end;
+    margin-left: auto;
+    @media (max-width: 768px) {
+    padding-left: 0%;
+    align-items: space-around; 
+}
+}
+.n-image {
+    width: 100%;
+    height: 100%; 
+    padding-left: 50%;
+    object-fit: cover;
+}
 
-    .n-image {
-        width: 100%;
-        height: 100%; /* To maintain the aspect ratio of the image */
-        padding-right: 100%;
-        object-fit: cover;
+.bg-custom {
+    background-color: #800000; 
+}
+    .icon svg:hover {
+    transform: scale(1.1); 
+}
+.n-icon {
+    size:40;
+    margin-left: auto;
+    margin-right: 10px;
+    position: relative;
+    top: -25px;
+}
+.btn {
+        transition: fill 0.3s ease; 
     }
-
-    /* Define a custom background color for the navbar */
-    .bg-custom {
-        background-color: #800000; /* Use the desired color code */
-    }
-        .icon svg:hover {
-        transform: scale(1.1); /* Increase the scale on hover */
-    }
-    .n-icon {
-        size:40;
-        margin-left: auto;
-        margin-right: 10px;
-        position: relative;
-        top: -25px;
-    }
-    .btn {
-            transition: fill 0.3s ease; /* 添加过渡效果 */
-        }
-
-        /* 鼠标悬停时的SVG样式 */
-    svg:hover path {
-        fill: red;
-    }
+svg:hover path {
+    fill: red;
+}
 
     
   

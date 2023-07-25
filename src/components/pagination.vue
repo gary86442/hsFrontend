@@ -70,5 +70,10 @@ const props = defineProps({
 </script>
 
 <style>
-/* Add your custom styles here */
+.pagination {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 </style>

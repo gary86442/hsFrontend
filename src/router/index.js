@@ -5,7 +5,7 @@ import Item from '@/views/Item/Item.vue'
 import Home from '@/views/Home.vue' 
 import SignUp from '@/views/account/SignUp.vue'
 import NotFound from '@/views/NotFound.vue'
-import LogIn from '@/views/account/LogIn.vue'
+import SignIn from '@/views/account/SignIn.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,8 +13,14 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'Root',
+      redirect: SignIn,
+    },
+    {
+      path: '/home',
       name: 'Home',
       component: Home
+
     },
     {
       path: '/items',
@@ -22,9 +28,9 @@ const router = createRouter({
       component: Item
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: LogIn
+      path: '/signin',
+      name: 'SignIn',
+      component: SignIn
     },
     {
       path: '/signup',

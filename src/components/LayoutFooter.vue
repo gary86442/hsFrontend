@@ -23,7 +23,7 @@ import { NIcon } from 'naive-ui'
                     
                 </div>
 
-                <!-- Column 2: Contact Information -->
+                <!-- 聯絡資訊 -->
                 <div class="text col-md-4">
                     <h3>聯絡資訊</h3>
                     <p>Email: contact@example.com</p>
@@ -31,7 +31,7 @@ import { NIcon } from 'naive-ui'
                     <p>Address: 123 Main Street, City, Country</p>
                 </div>
 
-                <!-- Column 3: Useful Links -->
+                <!--連結-->
                 <div class="text col-md-4">
                     <h3>快速連結</h3>
                     <ul>
@@ -42,11 +42,9 @@ import { NIcon } from 'naive-ui'
                     </ul>
                 </div>
             </div>
-
-            <!-- Fat Footer Divider -->
             <hr>
 
-            <!-- Copyright Information -->
+            <!-- footer-->
             <div class="row">
                 <div class="col-md-12 text-center">
                     <p>&copy; 2023 Your Website. All rights reserved.</p>
@@ -54,47 +52,50 @@ import { NIcon } from 'naive-ui'
             </div>
         </div>
     </footer>
-    <!-- <div v-else>No footer</div> -->
 </template>
 
  <style>
-    .fat-footer{
-        background-color: #800000;
-        display: flex;
-        justify-content: center; /* 水平居中对齐 */
-        align-items: center; /* 垂直居中对齐 */
+  .fat-footer {
+    background-color: #800000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    }
-    .text{
-        color: white;
-        font-size: 15px;
-        padding-left: 20px;
-        padding-right: 20px;
-        display: inline-block;
-    }
-    .n-icon {
-        size:30;
-        padding-left: 30px;
-        position: relative;
-        float: left;
-    }
-    .btn.btn-fb {
-        margin-top: 12px;
-    }
-    .btn.btn-line {
-        margin-top: 12px;
-    }
-    .btn {
-            transition: fill 0.3s ease; /* 添加过渡效果 */
-        }
+  .text {
+    color: white;
+    font-size: 15px;
+    padding: 20px;
+    text-align: center;
+  }
 
-        /* 鼠标悬停时的SVG样式 */
-    .svg-icon:hover path {
-    fill: #ffffff;
+  .n-icon {
+    size: 30;
+    padding: 10px;
+  }
+
+  .btn {
+    transition: fill 0.3s ease;
+  }
+
+ 
+  @media screen and (min-width: 768px) {
+    .fat-footer {
+      flex-direction: row;
+      justify-content: space-around;
+    padding-left: 40%;
+      align-items: center;
     }
 
+    .text {
+      width: 33.33%;
+    }
+  }
 
-
-    
+  @media screen and (min-width: 992px) {
+    .text {
+      font-size: 18px;
+    }
+  }
   
 </style>
