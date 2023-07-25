@@ -28,6 +28,8 @@ const item = reactive(props.initialitem);
         <p class="card-text title-wrap">
           <a href="#">{{ item.name }}</a>
         </p>
+        <div>{{ stock.color }}</div>
+        <div>{{ stock.size }}</div>
         <div>${{ item.price }}</div>  
         <span class="badge badge-secondary">{{ item.category }}</span>
       </div>

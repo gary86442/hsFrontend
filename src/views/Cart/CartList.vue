@@ -48,7 +48,7 @@ import { RouterLink } from 'vue-router'
               </td>
               <td class="tc">
                 <p>
-                  <n-popconfirm title="确认删除吗?" confirm-button-text="确认" cancel-button-text="取消">
+                  <n-popconfirm title="確認刪除嗎?" confirm-button-text="確認" cancel-button-text="取消">
                     <template #reference>
                       <a href="javascript:;">删除</a>
                     </template>

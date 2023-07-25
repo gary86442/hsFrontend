@@ -19,7 +19,7 @@ const router = createRouter({
     // },
     {
       path: '/home',
-      name: 'Home',
+      name: 'root',
       component: Home
 
     },
@@ -31,7 +31,7 @@ const router = createRouter({
     {
       path: '/signin',
       name: 'SignIn',
-      component: SignIn
+      component: SignIn,
     },
     {
       path: '/signup',

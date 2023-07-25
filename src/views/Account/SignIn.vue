@@ -1,12 +1,12 @@
 <script setup>
-    import { ref } from 'vue';
     import authorizationAPI from '@/apis/authorization';
     import { Toast } from '@/utils/helpers';
+import { ref } from 'vue';
     import { useRouter } from 'vue-router';
 
-    const account = ref('');
-    const password = ref('');
-
+   const  account = ref('');
+   const password = ref('');
+  
     async function handleSubmit() {
       try {
         if (!account.value || !password.value ) {
@@ -20,7 +20,7 @@
           account: account.value,
           password: password.value
         });
-        
+        const router = useRouter();
         const { data } = response;
         // Assuming the API response contains a 'token' property
         if (data && data.token) {
@@ -28,7 +28,7 @@
           localStorage.setItem('token', data.token);
           // Redirect to the restaurant homepage upon successful login
           // Make sure to import the $router object in the template part of the Vue component.
-          useRouter.push('/');
+          await router.push('/items');
         } else {
           console.error('Invalid API response:', data);
           // Handle the case when the API response doesn't contain the expected token
@@ -46,7 +46,7 @@
 
 <template>
   <div class="container py-5">
-    <form  @submit="handleSubmit"  class="w-100">
+    <form  @submit.prevent.stop="handleSubmit"  class="w-100">
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">
           Sign In
@@ -58,6 +58,7 @@
         <input
           id="account"
           name="account"
+          v-model="account"
           type="account"
           class="form-control"
           placeholder="account"
@@ -72,6 +73,7 @@
         <input
           id="password"
           name="password"
+          v-model="password"
           type="password"
           class="form-control"
           placeholder="Password"
