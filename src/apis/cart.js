@@ -1,16 +1,16 @@
 
 import { apiHelper } from './../utils/helpers'
-const getToken = () => localStorage.getItem('token')
+const getToken = () => localStorage.getCart('token')
 
 export default {
-  getItems ({ page, categoryId }) {
+  getCarts ({ page, categoryId }) {
     const searchParams = new URLSearchParams({ page, categoryId })
     return apiHelper.get(`items?${searchParams.toString()}`, {
       headers: { Authorization: `Bearer ${getToken()}` }
     })
   },
   getItem ({ itemId }) {
-    return apiHelper.get(`items/${itemId}`, {
+    return apiHelper.get(`carts/${itemId}`, {
       headers: { Authorization: `Bearer ${getToken()}` }
     })
   }

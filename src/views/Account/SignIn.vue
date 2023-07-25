@@ -9,12 +9,10 @@
 
     async function handleSubmit() {
       try {
-        
-        
-        if (!this.email || !this.password) {
+        if (!account.value || !password.value ) {
         Toast.fire({
           icon: 'warning',
-          title: '請填入 email 和 password'
+          title: '請填入 account 和 password'
         })
         return
       }

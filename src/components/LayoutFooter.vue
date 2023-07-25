@@ -78,24 +78,8 @@ import { NIcon } from 'naive-ui'
     transition: fill 0.3s ease;
   }
 
- 
-  @media screen and (min-width: 768px) {
-    .fat-footer {
-      flex-direction: row;
-      justify-content: space-around;
-    padding-left: 40%;
-      align-items: center;
-    }
-
     .text {
       width: 33.33%;
     }
-  }
-
-  @media screen and (min-width: 992px) {
-    .text {
-      font-size: 18px;
-    }
-  }
   
 </style>

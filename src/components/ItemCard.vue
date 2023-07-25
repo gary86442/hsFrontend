@@ -1,19 +1,15 @@
-<!-- <script setup>
-import { productAPI } from '../apis/items'
-const getProduct = async () => {
-  const result = await productAPI.getItem()
-  if (result) {
-    console.log(result)
-  } else {
-    console.error('Get product failed', result.error)
+<script setup>
+import { defineProps, reactive } from 'vue';
+
+const props = defineProps({
+  initialitem: {
+    type: Object,
+    required: true
   }
-}
-getProduct()
+});
 
-</script> -->
-
-
-
+const item = reactive(props.initialitem);
+</script>
 
 
 
@@ -23,19 +19,17 @@ getProduct()
     <div class="card mb-4">
       <img
         class="card-img-top"
-        src="{{ product.image }}"
+        :src="item.image"
         alt="Card image cap"
         width="286px"
         height="180px"
       >
       <div class="card-body">
         <p class="card-text title-wrap">
-          <a href="#">
-            {{ product.name }}
-          </a>
+          <a href="#">{{ item.name }}</a>
         </p>
-        <div>${{ product.price }}</div>  
-        <span class="badge badge-secondary">{{ product.Category }}</span>
+        <div>${{ item.price }}</div>  
+        <span class="badge badge-secondary">{{ item.category }}</span>
       </div>
       <div class="card-footer">
         <button
@@ -48,3 +42,4 @@ getProduct()
     </div>
   </div>
 </template>
+
