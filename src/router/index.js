@@ -1,7 +1,7 @@
 import { createRouter,createWebHistory } from 'vue-router' 
 // createWebHashHistory是創建history模式的路由
 //crouter是路由的實例
-import ItemPage from '@/views/Item/ItemPage.vue'
+import Item from '@/views/Item/Item.vue'
 import Home from '@/views/Home.vue' 
 import SignUp from '@/views/account/SignUp.vue'
 import NotFound from '@/views/NotFound.vue'
@@ -15,18 +15,18 @@ const router = createRouter({
     // {
     //   path: '/',
     //   name: 'Root',
-    //   redirect: SignIn,
+    //   redirect: ItemPage  //重定向到ItemPage,
     // },
     {
-      path: '/home',
+      path: '/',
       name: 'root',
       component: Home
 
     },
     {
       path: '/items',
-      name: 'ItemPage',
-      component: ItemPage
+      name: 'Item',
+      component: Item
     },
     {
       path: '/signin',

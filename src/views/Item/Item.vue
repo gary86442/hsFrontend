@@ -59,7 +59,7 @@ async function fetchItems(queryPage = currentPage.value, queryCategoryId = categ
       :initial-item="item"
       />
     </div>
-  <!-- 分頁標籤 RestaurantPagination -->
+  <!-- 分頁標籤 ItemPagination -->
   <Pagination />
 </template>
 

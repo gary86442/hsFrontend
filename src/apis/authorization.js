@@ -1,10 +1,10 @@
-import { apiHelper } from './../utils/helpers'
+import { apiHelper } from '@/utils/helpers'
 
 export default {
   // 帶入需要的參數
-  SignIn ({ account, password }) {
+  signIn ({ account, password }) {
     // 這裡 return 的會是一個 Promise
-    return apiHelper.post('/signin', {
+    return apiHelper.post('/signIn', {
       account,
       password
     })

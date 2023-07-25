@@ -1,47 +1,45 @@
 <script setup>
-    import authorizationAPI from '@/apis/authorization';
-    import { Toast } from '@/utils/helpers';
 import { ref } from 'vue';
-    import { useRouter } from 'vue-router';
+import authorizationAPI from '@/apis/authorization';
+import { Toast } from '@/utils/helpers'
+import { useRouter } from 'vue-router'
 
-   const  account = ref('');
-   const password = ref('');
-  
-    async function handleSubmit() {
-      try {
-        if (!account.value || !password.value ) {
+const router = useRouter();
+const account = ref('');
+const password = ref('');
+
+const handleSubmit = (e) => {
+  e.preventDefault(); // 阻止表單送出
+ if (!account.value || !password.value ) {
         Toast.fire({
           icon: 'warning',
-          title: '請填入 account 和 password'
-        })
-        return
-      }
-        const response = await authorizationAPI.SignIn({
-          account: account.value,
-          password: password.value
-        });
-        const router = useRouter();
-        const { data } = response;
-        // Assuming the API response contains a 'token' property
-        if (data && data.token) {
-          // Save the token in localStorage
-          localStorage.setItem('token', data.token);
-          // Redirect to the restaurant homepage upon successful login
-          // Make sure to import the $router object in the template part of the Vue component.
-          await router.push('/items');
-        } else {
-          console.error('Invalid API response:', data);
-          // Handle the case when the API response doesn't contain the expected token
-        }
-      } catch (error) {
-        console.error('Error occurred during login:', error);
-        // Handle errors that may occur during the API request
-      }
+          title: '請填入 email 和 password'
+        })}
+  authorizationAPI.signIn({
+    account: account.value,
+    password: password.value
+  }).then(response => {
+    const { data } = response
+    if (data.status === 'error') {
+      throw new Error(data.message)
     }
+    // 將 token 存到 localStorage
+    localStorage.setItem('token', data.token)
+    router.push('/items')
+  }).catch(error => {
+    console.error('Error occurred:', error);
+    // 清空表單
+    this.account = ''
+    this.password = ''
+        // 顯示錯誤提示
+        Toast.fire({
+          icon: 'warning',
+          title: '請確認您輸入了正確的帳號密碼'
+        })
+        console.log('error', error)
+      })
+};
 </script>
-
-
-
 
 
 <template>

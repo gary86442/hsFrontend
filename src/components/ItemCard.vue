@@ -2,13 +2,13 @@
 import { defineProps, reactive } from 'vue';
 
 const props = defineProps({
-  initialitem: {
+  initialItem: {
     type: Object,
     required: true
   }
 });
 
-const item = reactive(props.initialitem);
+const Item = reactive(props.initialItem);
 </script>
 
 
@@ -19,19 +19,19 @@ const item = reactive(props.initialitem);
     <div class="card mb-4">
       <img
         class="card-img-top"
-        :src="item.image"
+        :src="Item.image"
         alt="Card image cap"
         width="286px"
         height="180px"
       >
       <div class="card-body">
         <p class="card-text title-wrap">
-          <a href="#">{{ item.name }}</a>
+          <a href="#">{{ Item.name }}</a>
         </p>
         <div>{{ stock.color }}</div>
         <div>{{ stock.size }}</div>
-        <div>${{ item.price }}</div>  
-        <span class="badge badge-secondary">{{ item.category }}</span>
+        <div>${{ Item.price }}</div>  
+        <span class="badge badge-secondary">{{ Item.Category }}</span>
       </div>
       <div class="card-footer">
         <button
