@@ -4,10 +4,11 @@ import authorizationAPI from '@/apis/authorization';
 import { Toast } from '@/utils/helpers'
 import { useRouter } from 'vue-router'
 
+
 const router = useRouter();
 const account = ref('');
 const password = ref('');
-
+const isLoading = ref(false)
 const handleSubmit = (e) => {
   e.preventDefault(); // 阻止表單送出
  if (!account.value || !password.value ) {
@@ -25,7 +26,8 @@ const handleSubmit = (e) => {
     }
     // 將 token 存到 localStorage
     localStorage.setItem('token', data.token)
-    router.push('/items')
+    isLoading.value = true
+    router.push('/home')
   }).catch(error => {
     console.error('Error occurred:', error);
     // 清空表單
@@ -80,13 +82,9 @@ const handleSubmit = (e) => {
         >
       </div>
 
-      <button
-        class="btn btn-lg btn-primary btn-block mb-3"
-        type="submit"
-      >
-        Submit
-      </button>
-
+      <button :disabled="isLoading" type="submit" class="btn btn-primary">
+      Login</button>
+      
       <div class="text-center mb-3">
         <router-link to="/signup">
           Sign Up
@@ -111,4 +109,40 @@ const handleSubmit = (e) => {
         justify-content: center; /* 水平置中 */
         align-items: center; /* 垂直置中 */
     }
+    .spinner {
+  padding-top: 100px;
+}
+
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
+}
+
+.bouncing-loader > div {
+  width: 1rem;
+  height: 1rem;
+  margin: 3rem 0.2rem;
+  background: #bd2333;
+  border-radius: 50%;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bouncing-loader {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.1;
+    transform: translateY(-1rem);
+  }
+}
 </style>

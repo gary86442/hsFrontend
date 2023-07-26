@@ -13,17 +13,17 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   //配置path和component的對應關係
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Root',
-    //   redirect: ItemPage  //重定向到ItemPage,
-    // },
     {
       path: '/',
       name: 'root',
-      component: Home
+      component: SignIn
 
     },
+     {
+      path: '/home',
+      name: 'Home',
+      component: Home
+     },
     {
       path: '/items',
       name: 'Items',
@@ -43,18 +43,17 @@ const router = createRouter({
       path: '/cart',
       name: 'CartList',
       component: CartList
-
-    },
-     {
-      path: '/signup',
-      name: 'signUp',
-      component: SignUp
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: NotFound
-    }
+    },
+    {
+      path: '/signup',
+      name: 'signUp',
+      component: SignUp
+    },
   ]
 })
 

@@ -4,7 +4,7 @@ import { NBreadcrumb, NBreadcrumbItem } from 'naive-ui';
 const tabs = [
   {
     title: '首頁',
-    path: '/'
+    path: '/home'
   },
   {
     title: '全部商品',
