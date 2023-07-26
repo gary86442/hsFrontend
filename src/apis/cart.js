@@ -9,9 +9,14 @@ export default {
       headers: { Authorization: `Bearer ${getToken()}` }
     })
   },
-  // getItem ({ itemId }) {
-  //   return apiHelper.get(`carts/${itemId}`, {
-  //     headers: { Authorization: `Bearer ${getToken()}` }
-  //   })
-  // }
+  getCart (id) {
+    return apiHelper.get(`items/${id}`, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+  },
+  addToCart ({ itemId, quantity }) {
+    return apiHelper.post('cart', { itemId, quantity }, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+  }
 }

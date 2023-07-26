@@ -17,17 +17,15 @@ const Item = reactive(props.initialItem);
 <template>
   <div class="col-md-6 col-lg-4">
     <div class="card mb-4">
-      <img
+      <!-- <img
         class="card-img-top"
         :src="Item.image"
         alt="Card image cap"
         width="286px"
         height="180px"
-      >
+      > -->
       <div class="card-body">
-        <p class="card-text title-wrap">
-          <a href="#">{{ Item.name }}</a>
-        </p>
+          <div>{{ value.name }}</div>
         <div>{{ stock.color }}</div>
         <div>{{ stock.size }}</div>
         <div>${{ Item.price }}</div>  

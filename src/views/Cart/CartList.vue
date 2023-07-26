@@ -1,201 +1,44 @@
 <script setup>
-import { NCheckbox, NInputNumber, NButton, NEmpty, NPopconfirm } from 'naive-ui'
-import { RouterLink } from 'vue-router'
+import axios from 'axios';
+const headers = ['商品訊息', '單價', '數量', '小計', '操作']
+const itemFunc = function (id) {
+  axios.get(`url/${id}/items`, headers)
+}
+//axios.post("url/2/items", headers)
 </script>
  
 <template>
+  <div>
+  <h1>我是購物車</h1>
+
   <div class="xtx-cart-page">
     <div class="container m-top-20">
       <div class="cart">
         <table>
           <thead>
             <tr>
-              <th width="120">
-                <n-checkbox />
-              </th>
-              <th width="400">商品訊息</th>
+              <th v-for="th_name in headers" :key="th_name">{{ th_name }}</th>
+              <!-- <th width="400">商品訊息</th>
               <th width="220">單價</th>
               <th width="180">數量</th>
               <th width="180">小計</th>
-              <th width="140">操作</th>
+              <th width="140">操作</th> -->
             </tr>
           </thead>
-          <!-- 商品列表 -->
+          商品列表
           <tbody>
-            <tr v-for="i in cartStore.cartList" :key="i.id">
-              <td>
-                <!-- 单选框 -->
-                <n-checkbox />
-              </td>
-              <td>
-                <div class="goods">
-                  <RouterLink to="/"><img :src="i.picture" alt="" /></RouterLink>
-                  <div>
-                    <p class="name ellipsis">
-                      1111
-                    </p>
-                  </div>
-                </div>
-              </td>
-              <td class="tc">
-                <p>$100</p>
-              </td>
-              <td class="tc">
-                <n-input-number />
-              </td>
-              <td class="tc">
-                <p class="f16 red">$111</p>
-              </td>
-              <td class="tc">
-                <p>
-                  <n-popconfirm title="確認刪除嗎?" confirm-button-text="確認" cancel-button-text="取消">
-                    <template #reference>
-                      <a href="javascript:;">删除</a>
-                    </template>
-                  </n-popconfirm>
-                </p>
-              </td>
-            </tr>
-            <tr v-if="cartStore.cartList.length === 0">
-              <td colspan="6">
-                <div class="cart-none">
-                  <n-empty description="购物车列表为空">
-                    <n-button type="primary">随便逛逛</n-button>
-                  </n-empty>
-                </div>
-              </td>
+            <tr>
+              <td @click="itemFunc(1)">apple</td>
+              <td @click="itemFunc(2)">banana</td>
+              <td @click="itemFunc(3)">..</td>
+              <td @click="itemFunc(4)">...</td>
             </tr>
           </tbody>
- 
         </table>
       </div>
       <!-- 操作栏 -->
-      <div class="action">
-        <div class="batch">
-          共 2 件商品，已選擇 2 件，商品合計：
-          <span class="red">$ 100</span>
-        </div>
-        <div class="total">
-          <n-button size="large" type="primary" >下單结算</n-button>
-        </div>
-      </div>
     </div>
   </div>
+</div>
 </template>
  
-<style >
-.xtx-cart-page {
-  margin-top: 20px;
- 
-  .cart {
-    background: #fff;
-    color: #666;
- 
-    table {
-      border-spacing: 0;
-      border-collapse: collapse;
-      line-height: 24px;
- 
-      th,
-      td {
-        padding: 10px;
-        border-bottom: 1px solid #f5f5f5;
- 
-        &:first-child {
-          text-align: left;
-          padding-left: 30px;
-          color: #999;
-        }
-      }
- 
-      th {
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 50px;
-      }
-    }
-  }
- 
-  .cart-none {
-    text-align: center;
-    padding: 120px 0;
-    background: #fff;
- 
-    p {
-      color: #999;
-      padding: 20px 0;
-    }
-  }
- 
-  .tc {
-    text-align: center;
- 
-
- 
-    .xtx-numbox {
-      margin: 0 auto;
-      width: 120px;
-    }
-  }
- 
- 
-  .f16 {
-    font-size: 16px;
-  }
- 
-  .goods {
-    display: flex;
-    align-items: center;
- 
-    img {
-      width: 100px;
-      height: 100px;
-    }
- 
-    >div {
-      width: 280px;
-      font-size: 16px;
-      padding-left: 10px;
- 
-      .attr {
-        font-size: 14px;
-        color: #999;
-      }
-    }
-  }
- 
-  .action {
-    display: flex;
-    background: #fff;
-    margin-top: 20px;
-    height: 80px;
-    align-items: center;
-    font-size: 16px;
-    justify-content: space-between;
-    padding: 0 30px;
- 
-    .xtx-checkbox {
-      color: #999;
-    }
- 
-    .batch {
-      a {
-        margin-left: 20px;
-      }
-    }
- 
-    .red {
-      font-size: 18px;
-      margin-right: 20px;
-      font-weight: bold;
-    }
-  }
- 
-  .tit {
-    color: #666;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 50px;
-  }
-}
-</style>
