@@ -1,19 +1,36 @@
 <script setup>
 import { ref } from 'vue';
 
+
+
 const name = ref('');
 const email = ref('');
 const password = ref('');
 const passwordCheck = ref('');
+const account = ref('');
 
 const handleSubmit = () => {
   const data = JSON.stringify({
     name: name.value,
     email: email.value,
+    account: account.value,
     password: password.value,
     passwordCheck: passwordCheck.value
   });
+if (!name.value || !email.value || !account.value || !password.value || !passwordCheck.value) {
+    alert('請填入所有欄位');
+    return;
+  }
 
+if (password.value.length < 6) {
+    alert('密碼長度需大於6個字');
+    return;
+  }
+
+  if (password.value !== passwordCheck.value) {
+    alert('密碼不一致');
+    return;
+  }
   // TODO: 向後端驗證使用者登入資訊是否合法
   console.log('data', data);
 };

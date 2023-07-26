@@ -8,5 +8,14 @@ export default {
       account,
       password
     })
+  },
+  signUp ({ account, name, email, password, passwordCheck }) {
+    return apiHelper.post('/signUp', {
+      account,
+      name,
+      email,
+      password,
+      passwordCheck
+    })
   }
 }
